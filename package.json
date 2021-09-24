@@ -8,9 +8,9 @@
     "declarations": true
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-example-ts",
+    "start": "egg-scripts start --workers=1",
     "stop": "egg-scripts stop --title=egg-server-example-ts",
-    "dev": "egg-bin dev",
+    "dev": "cross-env EGG_SERVER_ENV=local egg-bin dev",
     "debug": "egg-bin debug",
     "test-local": "egg-bin test",
     "test": "npm run lint -- --fix && npm run test-local",
@@ -19,7 +19,10 @@
     "ci": "npm run lint && npm run cov && npm run tsc",
     "autod": "autod",
     "lint": "eslint . --ext .ts",
-    "clean": "ets clean"
+    "clean": "ets clean",
+    "start:dev": "cross-env EGG_SERVER_ENV=dev npm start",
+    "start:testing": "cross-env EGG_SERVER_ENV=testing npm start",
+    "start:production": "cross-env EGG_SERVER_ENV=production npm start"
   },
   "dependencies": {
     "egg": "^2.6.1",
@@ -31,12 +34,13 @@
     "@types/supertest": "^2.0.0",
     "autod": "^3.0.1",
     "autod-egg": "^1.1.0",
-    "egg-ci": "^1.8.0",
+    "cross-env": "^7.0.3",
     "egg-bin": "^4.11.0",
+    "egg-ci": "^1.8.0",
     "egg-mock": "^3.16.0",
-    "tslib": "^1.9.0",
     "eslint": "^6.7.2",
     "eslint-config-egg": "^8.0.0",
+    "tslib": "^1.9.0",
     "typescript": "^3.0.0"
   },
   "engines": {
