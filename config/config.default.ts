@@ -12,7 +12,7 @@ export default (appInfo: EggAppInfo) => {
 
   // add your special config in here
   const bizConfig = {
-    sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
+    DOMAIN: 'https://api.github.com/users/believel',
     // view 配置
     view: {
       // 默认模板引擎
