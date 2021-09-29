@@ -13,6 +13,17 @@ export default (appInfo: EggAppInfo) => {
   // add your special config in here
   const bizConfig = {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
+    // view 配置
+    view: {
+      // 默认模板引擎
+      defaultViewEngine: 'handlebars',
+      // 默认扩展名
+      defaultExtension: ".hbs",
+      // 设置 模板扩展名为 .hbs 设置为用 handlebars 引擎
+      mapping: {
+        '.hbs': 'handlebars'
+      }
+    }
   };
   // modify config port
   config.cluster = {
