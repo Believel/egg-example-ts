@@ -1,7 +1,12 @@
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
+import * as path from "path";
 
 export default (appInfo: EggAppInfo) => {
   const config = {} as PowerPartial<EggAppConfig>;
+
+  config.logger = {
+    dir: path.join(__dirname, "../logs")
+  }
 
   // override config from framework / plugin
   // use for cookie sign key, should change to your own and keep security
@@ -29,7 +34,7 @@ export default (appInfo: EggAppInfo) => {
   config.cluster = {
     listen: {
       path: "",
-      port: "7002",
+      port: 7002,
       hostname: "0.0.0.0"
     }
   }
